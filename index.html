@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tracker GPS con ESP8266</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://unpkg.com/mqtt@4.3.7/dist/mqtt.min.js"></script>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .gps-card {
+            background: #f0f0f0;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        #map { height: 300px; width: 100%; border-radius: 8px; }
+    </style>
+</head>
+<body>
+    <div class="gps-card">
+        <h2><i class="fas fa-map-marked-alt"></i> Datos GPS en Tiempo Real</h2>
+        <p><strong>Latitud:</strong> <span id="lat">0</span></p>
+        <p><strong>Longitud:</strong> <span id="lng">0</span></p>
+        <p><strong>Altitud:</strong> <span id="alt">0</span> metros</p>
+    </div>
+    <div id="map"></div>
+
+    <script src="app.js"></script>
+    <!-- LeafletJS para el mapa -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+</body>
+</html>
