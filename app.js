@@ -19,12 +19,27 @@ document.addEventListener('DOMContentLoaded', function() {
         client.subscribe('gps/data');
     });
 
-    client.on('message', (topic, message) => {
-        if (topic === 'gps/data') {
-            const data = JSON.parse(message.toString());
-            L.marker([data.lat, data.lng]).addTo(map)
-                .bindPopup(`Lat: ${data.lat}<br>Lng: ${data.lng}`).openPopup();
-            map.setView([data.lat, data.lng], 15);
-        }
-    });
+
+client.on("message", (topic, message) => {
+  if (topic === "gps/data") {
+    try {
+      // Parsear el JSON recibido
+      const data = JSON.parse(message.toString());
+      
+      // Actualizar la interfaz
+      document.getElementById("lat").textContent = data.lat;
+      document.getElementById("lng").textContent = data.lng;
+      document.getElementById("alt").textContent = data.alt;
+      
+      // Actualizar el mapa (si usas Leaflet)
+      if (map && marker) {
+        map.setView([data.lat, data.lng], 15);
+        marker.setLatLng([data.lat, data.lng]);
+      }
+      
+    } catch (e) {
+      console.error("Error al parsear JSON:", e, "Mensaje crudo:", message.toString());
+    }
+  }
+});
 });
