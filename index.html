@@ -4,8 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tracker GPS con ESP8266</title>
+    <!-- Carga Leaflet CSS primero -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <!-- Luego tus otros estilos -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script src="https://unpkg.com/mqtt@4.3.7/dist/mqtt.min.js"></script>
     <style>
         body { font-family: Arial, sans-serif; margin: 20px; }
         .gps-card {
@@ -27,9 +29,9 @@
     </div>
     <div id="map"></div>
 
-    <script src="app.js"></script>
-    <!-- LeafletJS para el mapa -->
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <!-- Carga Leaflet JS antes de tu script -->
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/mqtt@4.3.7/dist/mqtt.min.js"></script>
+    <script src="app.js"></script>
 </body>
 </html>
